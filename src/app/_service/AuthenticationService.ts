@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
+import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { ConfigValue }  from '../_models/ConfigValue';
 import 'rxjs/add/operator/map';
@@ -11,7 +11,7 @@ import 'rxjs/add/operator/toPromise';
 export class Authentication{
     private headers = new Headers();
   constructor(private http: Http ,
-            private config: ConfigValue){
+            private config: ConfigValue ){
         this.headers.append('Content-Type', 'application/json');       
      }
      login(username: string, password: string){
@@ -19,12 +19,15 @@ export class Authentication{
             .map(( response: Response ) => {
              let user =  response.json();
                     if(user && user.access_token){
-                        console.log("save token");
-                        localStorage.setItem(this.config.token_tmdt,JSON.stringify(user));
+                        let headers = new Headers({ 'Authorization': 'Bearer ' + user.access_token });
+                        let token_rest = new RequestOptions({ headers: headers })
+                        this.http.get(this.config.url_port+'/api/whoami', token_rest ).map((response: Response) => response.json())
+                        .subscribe(users => { 
+                                user.profile = users ;
+                                console.log(user)
+                             localStorage.setItem(this.config.token_tmdt,JSON.stringify(user));
+                            });
                     }
-                   this.http.get(this.config.url_port+'/api/whoami').toPromise()
-                   .then(res => { console.log(res.json()) } ).then()
-                   
                return user;
             });
      }
@@ -34,4 +37,14 @@ export class Authentication{
      logout() {
          localStorage.removeItem(this.config.token_tmdt);
      }
+      private jwt() {
+                // create authorization header with jwt token
+                let currentUser = JSON.parse(localStorage.getItem(this.config.token_tmdt));
+                if (currentUser && currentUser.token) {
+                    let headers = new Headers({ 'Authorization': 'Bearer ' + currentUser.token,
+                                                'Content-Type': 'application/json' },
+                            );
+                    return new RequestOptions({ headers: headers });
+                }
+            }
 }
