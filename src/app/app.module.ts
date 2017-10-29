@@ -10,9 +10,9 @@ import { PageNotFoundComponent } from './home/components/pages/page-not-found.co
  
 import { AppRoutingModule } from './app-routing.module';
 
-import { CookieService } from 'ngx-cookie-service';
 
-// my service  
+// my service
+import { AuthSercurity } from './_sercurity/AuthSercurity';  
 import  { Authentication }  from './_service/AuthenticationService';
 import { ConfigValue }  from './_models/ConfigValue';
 
@@ -30,7 +30,7 @@ import { ConfigValue }  from './_models/ConfigValue';
   providers: [
     Authentication,
     ConfigValue,
-    CookieService
+    AuthSercurity
   ],
   bootstrap: [AppComponent]
 })

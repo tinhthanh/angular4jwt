@@ -3,6 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { PageNotFoundComponent }  from  './home/components/pages/page-not-found.component';
 import { HomeComponent }  from './home/home.component';
+
+import { AuthSercurity }  from  './_sercurity/AuthSercurity';
+
 const routers: Routes = [
     {
         path: 'home', component: HomeComponent
@@ -12,8 +15,13 @@ const routers: Routes = [
     },
     {
         path: 'admin',
-        loadChildren : 'app/admin/admin.module#AdminModule'
+        loadChildren : 'app/admin/admin.module#AdminModule',
+        canActivate: [AuthSercurity]
     },
+      {
+    path : 'pages',
+    loadChildren: 'app/pages/pages.module#PagesModule'
+      },
     {
         path: '', redirectTo: 'home', pathMatch: 'full'
     },
