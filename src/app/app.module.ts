@@ -5,7 +5,7 @@ import { Router} from '@angular/router';
 import { HttpModule } from  '@angular/http';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+
 import { PageNotFoundComponent } from './home/components/pages/page-not-found.component';
  
 import { AppRoutingModule } from './app-routing.module';
@@ -16,10 +16,10 @@ import { AuthSercurity } from './_sercurity/AuthSercurity';
 import  { Authentication }  from './_service/AuthenticationService';
 import { ConfigValue }  from './_models/ConfigValue';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     PageNotFoundComponent,
   ],
   imports: [

@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { PageNotFoundComponent }  from  './home/components/pages/page-not-found.component';
-import { HomeComponent }  from './home/home.component';
 
 import { AuthSercurity }  from  './_sercurity/AuthSercurity';
 
 const routers: Routes = [
     {
-        path: 'home', component: HomeComponent
+        path: 'home',
+        loadChildren: 'app/home/home.module#HomeModule'
     },
     {
         path: 'notfound', component: PageNotFoundComponent
