@@ -10,22 +10,27 @@ import { PageNotFoundComponent } from './home/components/pages/page-not-found.co
  
 import { AppRoutingModule } from './app-routing.module';
 
+import { FormsModule }  from '@angular/forms';
 
 // my service
 import { AuthSercurity } from './_sercurity/AuthSercurity';  
 import  { Authentication }  from './_service/AuthenticationService';
 import { ConfigValue }  from './_models/ConfigValue';
+import { DemoComponent } from './demo/demo.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
+    DemoComponent,
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    
   ],
   providers: [
     Authentication,

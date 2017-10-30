@@ -1,3 +1,17 @@
-<p>
-  product works!
-</p>
+
+<table>
+   <tr *ngFor="let product of products | async"> 
+     <td>{{ product.id }}</td>
+     <td>{{ product.tenSanPham }}</td>
+     <td>{{ product.SoLuong }}</td>
+     <td> 
+     <button (click)="onSelect(product)">
+      Xem </button>
+     </td>
+   </tr>
+</table>
+<app-product-details [product]="selectedP" ></app-product-details>
+
+
+
+

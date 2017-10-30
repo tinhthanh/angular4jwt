@@ -1,0 +1,44 @@
+
+
+<ul>
+    <li *ngFor="let subject of arrSubjects" >
+      <p> {{ 'subject' + subject }} </p>
+    </li>
+  </ul>
+  <table>
+     <tr *ngFor="let word of objectWords"> 
+       <td>{{ word.id }}</td>
+       <td>{{ word.name }}</td>
+       <td>{{ word.level }}</td>
+     </tr>
+  </table>
+ 
+  <h1> Thêm phần tử vào mãng  </h1> 
+   <div *ngIf="isShowForm">
+   <table >
+      <tr >
+        <td> <input placeholder="Nhập Tên " [(ngModel)]="newName" ></td>
+     </tr>
+     <tr>
+      <td> <input placeeholder=" Nhập level" [(ngModel)]="newLevel" > </td>
+     </tr>
+     <tr>
+        <td> <input type="submit" (click)="addNew()" value="Thêm vào" ></td>
+    </tr>
+   </table>
+   </div>
+   <input type="submit" (click)="isShowForm = true" *ngIf="!isShowForm" value="Thêm vào" >
+ 
+ 
+   <h1> xóa phần tử trong mãng </h1>
+ 
+   <table>
+       <tr *ngFor="let word of objectWords"> 
+         <td>{{ word.id }}</td>
+         <td>{{ word.name }}</td>
+         <td>{{ word.level }}</td>
+         <td> <input (click)="deleteElement(word.id)" style="color: red;" type="submit" value="xóa"></td>
+       </tr>
+    </table>
+ 
+ 

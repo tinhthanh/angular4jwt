@@ -42,4 +42,4 @@ export class Authentication{
                     return new RequestOptions({ headers: headers });
                 }
             }
-}
+     }

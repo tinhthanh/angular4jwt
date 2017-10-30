@@ -21,7 +21,6 @@ export class LoginAdminComponent implements OnInit  {
                   console.log(data);
               }
           );
-    
         this.route.snapshot.queryParams['returnUrl'] || '/';
     }
       

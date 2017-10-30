@@ -7,6 +7,7 @@ import { LoginAdminComponent }  from  './components/loginadmin/login-admin.compo
 import  { ManagerAccountComponent } from './components/manageraccount/manager-account.component';
 import { AdminComponent } from  './admin.component';
 import { AdminRoutingModule } from './admin-routing.module';
+
 @NgModule({
      imports: [
         //  CommonModule,
@@ -16,7 +17,7 @@ import { AdminRoutingModule } from './admin-routing.module';
          AdminComponent,
          KhoaHocComponent,
          LoginAdminComponent,
-         ManagerAccountComponent
+         ManagerAccountComponent,
      ]
 })
 

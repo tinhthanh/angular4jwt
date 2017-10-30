@@ -4,11 +4,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent }  from  './home/components/pages/page-not-found.component';
 
 import { AuthSercurity }  from  './_sercurity/AuthSercurity';
-
+import { DemoComponent } from './demo/demo.component';
 const routers: Routes = [
     {
         path: 'home',
         loadChildren: 'app/home/home.module#HomeModule'
+    },
+    {
+    path: 'demo',
+    component: DemoComponent
     },
     {
         path: 'notfound', component: PageNotFoundComponent

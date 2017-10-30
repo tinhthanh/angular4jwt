@@ -1,3 +1,4 @@
+import { Product } from './../_models/Product';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 
