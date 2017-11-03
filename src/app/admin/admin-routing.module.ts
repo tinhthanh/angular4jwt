@@ -16,7 +16,7 @@ const routes:     Routes                       = [
           { path: 'admin-login', component:      LoginAdminComponent},
           { path: 'manager-accounts', component: ManagerAccountComponent}
       ],
-      data:       { preload:                     true }
+      //data:       { preload:                     true }
   }
 ]
 @NgModule({

@@ -14,11 +14,9 @@ export class AdminLoginComponent implements OnInit {
                 private route: ActivatedRoute,
                 private authentication: Authentication) { }
                 ngOnInit(){
-                    this.authentication.login('aaa','sss').subscribe(
-                        data => {
-                            console.log(data);
-                        }
-                    );
+                    this.authentication.login('aaa','sss').then( res => {
+                             console.log(res);
+                    });
                   this.route.snapshot.queryParams['returnUrl'] || '/';
               }
 }

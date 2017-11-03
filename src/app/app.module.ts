@@ -18,7 +18,6 @@ import  { Authentication }  from './_service/AuthenticationService';
 import { ConfigValue }  from './_models/ConfigValue';
 import { DemoComponent } from './demo/demo.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

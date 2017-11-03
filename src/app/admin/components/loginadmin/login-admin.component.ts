@@ -16,11 +16,8 @@ export class LoginAdminComponent implements OnInit  {
           private authentication: Authentication
       ){}
       ngOnInit(){
-          this.authentication.login('aaa','sss').subscribe(
-              data => {
-                  console.log(data);
-              }
-          );
+          this.authentication.login('aaa','sss');
+
         this.route.snapshot.queryParams['returnUrl'] || '/';
     }
       
